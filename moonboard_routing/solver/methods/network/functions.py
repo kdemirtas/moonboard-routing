@@ -1,5 +1,5 @@
 from moonboard_routing.graph import node, edge
-from moonboard_routing.solver.classes import *
+from moonboard_routing.solver.classes import MoveInfeasibleError
 
 def extract_moves(hypernode1:node.HyperNode, hypernode2:node.HyperNode) -> list:
     repr1 = hypernode1.quadruple

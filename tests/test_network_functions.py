@@ -2,7 +2,7 @@ import unittest
 
 from moonboard_routing.solver.methods.network import functions as nf
 from moonboard_routing.graph import node, edge
-from moonboard_routing.solver.classes import *
+from moonboard_routing.solver.classes import MoveInfeasibleError
 
 
 class TestNetworkFunctions(unittest.TestCase):
