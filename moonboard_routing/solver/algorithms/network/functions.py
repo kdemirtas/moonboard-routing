@@ -1,7 +1,7 @@
-from moonboard_routing.graph import node, edge
-from moonboard_routing.solver.classes import MoveInfeasibleError
+from moonboard_routing.solver.classes.graph import *
+from moonboard_routing.solver.classes.exceptions import MoveInfeasibleError
 
-def extract_moves(hypernode1:node.HyperNode, hypernode2:node.HyperNode) -> list:
+def extract_moves(hypernode1:HyperNode, hypernode2:HyperNode) -> list:
     repr1 = hypernode1.quadruple
     repr2 = hypernode2.quadruple
 

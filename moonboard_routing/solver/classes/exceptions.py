@@ -3,7 +3,5 @@ class MoveInfeasibleError(Exception):
         super().__init__(message, errors)
 
 
-class Solution:
-    def __init__(self, hyperpath: list) -> None:
-        pass
+
 

@@ -1,8 +1,8 @@
 import unittest
 
-from moonboard_routing.solver.methods.network import functions as nf
-from moonboard_routing.graph import node, edge
-from moonboard_routing.solver.classes import MoveInfeasibleError
+from moonboard_routing.solver.algorithms.network import functions as nf
+from moonboard_routing.solver.classes.graph import HyperNode, HyperEdge
+from moonboard_routing.solver.classes.exceptions import MoveInfeasibleError
 
 
 class TestNetworkFunctions(unittest.TestCase):
@@ -13,8 +13,8 @@ class TestNetworkFunctions(unittest.TestCase):
         pass
 
     def test_extract_moves_returns_empty_list_for_no_move(self):
-        hn1 = node.HyperNode("Hypernode1", ["A3", "B4", "A1", "B1"])
-        hn2 = node.HyperNode("Hypernode2", ["A3", "B4", "A1", "B1"])
+        hn1 = HyperNode("Hypernode1", ["A3", "B4", "A1", "B1"])
+        hn2 = HyperNode("Hypernode2", ["A3", "B4", "A1", "B1"])
 
         moves = nf.extract_moves(hn1, hn2)
         self.assertEqual(moves, [])
