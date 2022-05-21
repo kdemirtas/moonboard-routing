@@ -1,4 +1,4 @@
-import node
+from . import node
 
 class Edge:
     def __init__(self, edge_id:str, from_node:node.Node, to_node:node.Node) -> None:
