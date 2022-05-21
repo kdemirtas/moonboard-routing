@@ -2,6 +2,8 @@ import unittest
 
 from moonboard_routing.solver.methods.network import functions as nf
 from moonboard_routing.graph import node, edge
+from moonboard_routing.solver.classes import *
+
 
 class TestNetworkFunctions(unittest.TestCase):
     def setUp(self) -> None:
@@ -16,3 +18,27 @@ class TestNetworkFunctions(unittest.TestCase):
 
         moves = nf.extract_moves(hn1, hn2)
         self.assertEqual(moves, [])
+
+    def test_extract_movement_returns_dash_for_no_move(self):
+        move_component = "left-hand"
+        from_node = "A1"
+        to_node = "A1"
+
+        movement = nf._extract_movement(move_component, from_node, to_node)
+        self.assertEqual(movement, "-")
+
+    def test_extract_movement_returns_movement_for_feasible_move(self):
+        move_component = "left-hand"
+        from_node = "A1"
+        to_node = "A2"
+
+        movement = nf._extract_movement(move_component, from_node, to_node)
+        self.assertEqual(movement, "A1->A2")
+
+    def test_extract_raises_moveinfeasible_error_for_infeasible_move(self):
+        move_component = "left-hand"
+        from_node = "A1"
+        to_node = "A2"
+
+        with self.assertRaises(MoveInfeasibleError):
+            movement = nf._extract_movement(move_component, from_node, to_node, test=True, test_check=False)
