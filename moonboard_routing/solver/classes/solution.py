@@ -1,12 +1,15 @@
+from moonboard_routing.solver.classes.graph import HyperpathNode
+
+
 class Solution:
-    def __init__(self, hyperpath: list) -> None:
+    def __init__(self, hyperpath_root: HyperpathNode) -> None:
         """Initializes a Solution instance.
 
         Args:
-            hyperpath (list): List of HyperNodes from start to destination.
+            hyperpath_root (HyperpathNode): Root hypernode of the hyperpath.
         """
-        self.hyperpath = hyperpath
-        self._decoded_path = self._decode_path(self.hyperpath)
+        self.hyperpath_root = hyperpath_root
+        self._decoded_path = self._decode_path(self.hyperpath_root)
 
     def _decode_path(self):
         # Decodes the hyperpath and returns the individual movement in order

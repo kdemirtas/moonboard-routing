@@ -12,7 +12,7 @@ def extract_moves(hypernode1:HyperNode, hypernode2:HyperNode) -> list:
     Returns:
         list: List of strings representing the movement for each body component in ther order of
         LH, RH, LF, RF, where they stand for left-hand, right-hand, left-foot, right-foot, respectively.
-        e.g. [-, A2->A3, -, -] represents right-hand movement from node A2 to node A3, where the
+        e.g. [-, A2->A3, -, -] represents ri\ght-hand movement from node A2 to node A3, where the
         other body components stay still, which is represented by -.
     """
     repr1 = hypernode1.quadruple
