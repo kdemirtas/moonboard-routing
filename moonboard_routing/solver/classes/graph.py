@@ -1,3 +1,6 @@
+from sklearn.model_selection import PredefinedSplit
+
+
 class Node:
     """Node class for the raw moonboard network.
     """
@@ -27,6 +30,33 @@ class HyperNode:
         self.hypernode_id = hypernode_id
         self.quadruple = quadruple
 
+class HyperpathNode(HyperNode):
+        def __init__(self, hypernode_id: str, quadruple: list, pred: HyperNode= None, next: HyperNode=None) -> None:
+            super().__init__(hypernode_id, quadruple)
+            self.parent = pred
+            self.next = next
+        
+        def is_start(self):
+            _is_start = False
+            if self.parent is None:
+                _is_start = True
+
+            return _is_start
+
+        def is_terminal(self):
+            _is_terminal = False
+            if self.next is None:
+                _is_terminal = True
+            
+            return _is_terminal
+
+        def is_transition(self):
+            _is_transition = False
+
+            if self.parent and self.next:
+                _is_transition = True
+
+            return _is_transition
 
 class Edge:
     def __init__(self, edge_id: str, from_node: Node, to_node: Node) -> None:
