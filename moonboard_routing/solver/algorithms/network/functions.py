@@ -11,9 +11,9 @@ def extract_moves(hypernode1:HyperNode, hypernode2:HyperNode) -> list:
         hypernode2 (HyperNode): Destination node of the move in the Hypernetwork_
 
     Returns:
-        list: List of strings representing the movement for each body component in ther order of
+        moves (list): List of strings representing the movement for each body component in ther order of
         LH, RH, LF, RF, where they stand for left-hand, right-hand, left-foot, right-foot, respectively.
-        e.g. [-, A2->A3, -, -] represents ri\ght-hand movement from node A2 to node A3, where the
+        e.g. [-, A2->A3, -, -] represents right-hand movement from node A2 to node A3, where the
         other body components stay still, which is represented by -.
     """
     repr1 = hypernode1.quadruple
@@ -42,7 +42,7 @@ def _extract_movement(move_component:str, from_node:str, to_node:str, test=False
         test_check (bool, optional): Boolean variable to be used in test checks. Defaults to True.
 
     Returns:
-        movement (str): _String description of the movement. (e.g. A1->A2)
+        movement (str): String description of the movement. (e.g. A1->A2)
     """
     if from_node == to_node:
         return "-"
