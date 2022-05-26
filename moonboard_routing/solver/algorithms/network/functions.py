@@ -1,5 +1,6 @@
 from moonboard_routing.solver.classes.graph import *
 from moonboard_routing.solver.classes.exceptions import MoveInfeasibleError
+import config
 
 def extract_moves(hypernode1:HyperNode, hypernode2:HyperNode) -> list:
     """Extracts the individual body component movements for a move from
@@ -19,13 +20,13 @@ def extract_moves(hypernode1:HyperNode, hypernode2:HyperNode) -> list:
     repr2 = hypernode2.quadruple
 
     moves = []
+    move_components = config.MOVE_COMPONENTS
     if repr1 == repr2:
         # two hypernodes are identical, return an empty list
         return moves
     
     for i in range(len(repr1)):
-        move_components = ["left-hand", "right-hand", "left-foot", "right-foot"]
-        moves.append(move_components[i],_extract_movement(repr1[i]), repr2[i])
+        moves.append(_extract_movement(move_components[i], repr1[i], repr2[i]))
 
     return moves
     

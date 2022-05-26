@@ -33,7 +33,7 @@ class HyperNode:
 class HyperpathNode(HyperNode):
         def __init__(self, hypernode_id: str, quadruple: list, pred: HyperNode= None, next: HyperNode=None) -> None:
             super().__init__(hypernode_id, quadruple)
-            self.parent = pred
+            self.pred = pred
             self.next = next
         
         def is_start(self):
@@ -53,7 +53,7 @@ class HyperpathNode(HyperNode):
         def is_transition(self):
             _is_transition = False
 
-            if self.parent and self.next:
+            if self.pred and self.next:
                 _is_transition = True
 
             return _is_transition

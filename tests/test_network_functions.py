@@ -35,7 +35,7 @@ class TestNetworkFunctions(unittest.TestCase):
         movement = nf._extract_movement(move_component, from_node, to_node)
         self.assertEqual(movement, "A1->A2")
 
-    def test_extract_raises_moveinfeasible_error_for_infeasible_move(self):
+    def test_extract_movement_raises_moveinfeasible_error_for_infeasible_move(self):
         move_component = "left-hand"
         from_node = "A1"
         to_node = "A2"
