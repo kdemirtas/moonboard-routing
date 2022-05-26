@@ -17,7 +17,7 @@ class TestSolution(unittest.TestCase):
         node5 = HyperpathNode("5", ["B5", "C5", "B2", "C2"], pred=node4)
         node4.next = node5
         hyperpath_root = node1
-        self.solution = Solution(hyperpath_root=hyperpath_root)
+        self.solution = Solution(hyperpath_root=hyperpath_root, status="Test")
 
     def tearDown(self) -> None:
         pass
@@ -25,3 +25,6 @@ class TestSolution(unittest.TestCase):
     def test_solution_decode_path(self):
         decoded_path = self.solution.decoded_path
         self.assertListEqual(decoded_path, [['-', 'B4->C5', '-', '-'], ['-', '-', '-', 'B1->C2'], ['A3->B5', '-', '-', '-'], ['-', '-', 'A1->B2', '-']])
+
+    def test_solution_print_to_console(self):
+        self.solution.to_console()

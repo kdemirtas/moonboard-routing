@@ -35,7 +35,7 @@ def _extract_movement(move_component:str, from_node:str, to_node:str, test=False
 
     Args:
         move_component (str): Body component performing the movement. Can be one of
-        `left-hand`, `right-hand`, `left-foot`, or `right-foot`.
+            `left-hand`, `right-hand`, `left-foot`, or `right-foot`.
         from_node (str): Origin node of the corresponding move component in the raw network
         to_node (str): _Destination node of the corresponding move component in the raw network_
         test (bool, optional): Boolean variable to indicate if the function is used for test methods. Defaults to False.
@@ -61,10 +61,11 @@ def _is_move_feasible(move_component:str, from_node:str, to_node:str, test=False
     for the given `move_component`. 
 
     Args:
-        move_component (str): _description_
-        from_node (str): _description_
-        to_node (str): _description_
-        test (bool, optional): _Boolean variable to indicate if the function is used for test methods. Defaults to False.
+        move_component (str): Body component performing the movement. Can be one of
+            `left-hand`, `right-hand`, `left-foot`, or `right-foot`.
+        from_node (str): Origin node of the corresponding move component in the raw network
+        to_node (str): _Destination node of the corresponding move component in the raw network_
+        test (bool, optional): Boolean variable to indicate if the function is used for test methods. Defaults to False.
         test_check (bool, optional): Boolean variable to be used in test checks. Defaults to True.
 
     Returns:
